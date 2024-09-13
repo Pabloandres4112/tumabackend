@@ -40,8 +40,8 @@ export const autenticacion = async (req, res) => {
             // Generar un token JWT
             const token = jwt.sign(
                 { userId: user.id_usuario },
-                process.env.AUT_SECRET, 
-                { expiresIn: process.env.AUT_EXPIRE || '1h' }
+                'estemensajedebeserlargoyseguro', 
+                { expiresIn: '24h' }
             );
 
             return res.status(200).json({

@@ -6,7 +6,7 @@ export const tokenautorizacion = (req, res, next) => {
 
     if (token == null) return res.status(401).json({ message: 'Token no proporcionado' });
 
-    jwt.verify(token, process.env.AUT_SECRET, (err, user) => {
+    jwt.verify(token, 'estemensajedebeserlargoyseguro', (err, user) => {
         if (err) return res.status(403).json({ message: 'Token inválido' });
 
         req.user = user; // Agrega el usuario al objeto de solicitud
